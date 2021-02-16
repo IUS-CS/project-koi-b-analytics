@@ -9,7 +9,7 @@ NBA Stat Track is an analytics program made using Python v3.9.1
 
 # Guide
 
-[User-Guide](https://github.com/IUS-CS/project-koi-b-analytics/blob/main/doc/userguide.md)
+[User-Guide](https://github.com/IUS-CS/project-koi-b-analytics/blob/main/doc/USERGUIDE.md)
 
 # Contribute
 
