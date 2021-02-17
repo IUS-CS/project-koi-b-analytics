@@ -1,4 +1,5 @@
 # Proposal
+
 Koi-B Analytics is a desktop application that aims to make use of player statistics
 in the National Basketball Association (NBA). The project will allow users to query
 any active player in the NBA and pull up their relevant stat-lines.
@@ -22,11 +23,13 @@ via a stored procedure.
 Time permitting we would like to include a live scoring, schedule, and twitter feed pane.
 
 
+
 # Vision Statement
 -For analytics fans and casual National Basketball Association viewers alike.
 Koi-B Analytics offers player stat indexing along with a variety of visual tools.
 
 -Unlike most widely used fantasy line-up tools, Koi-B offers in depth breakdowns of
+
 user-created "rosters". Users will be allowed the flexibility to experiment with
 different rosters. In a fantasy sports setting this gives the player a competitive
 advantage in leveraging trades and making team management decisions.
@@ -34,3 +37,8 @@ advantage in leveraging trades and making team management decisions.
 -Target audiences include enthusiasts of the professional basketball scene who would
 like to make use of basketball player(s) stat-lines. Use the desktop application to
 build roster(s), find trends, and visualize statistics.
+
+user-created "rosters".
+
+-Target audiences include enthusiasts of the professional basketball scene who would like to make use of basketball player(s) stat-lines. Use the desktop application to build roster(s), find trends, and visualize statistics.
+
