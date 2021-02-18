@@ -1,7 +1,6 @@
 <<<<<<< HEAD
 # project-koi-b-analytics
-For this project, we will be creating a desktop application that will 
-=======
+
 Koi B Analytics - NBA Stat Track
 ================================
 
