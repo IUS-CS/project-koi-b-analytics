@@ -1,54 +1,44 @@
 import kivy
 from kivy.app import App
-from kivy.uix.label import Label
-from kivy.uix.gridlayout import GridLayout
-from kivy.uix.textinput import TextInput
-from kivy.uix.button import Button
+from kivy.uix.widget import Widget
+from kivy.properties import ObjectProperty
+from kivy.lang import Builder
+from kivy.uix.image import Image
+kivy.require('1.9.0')
+from kivy.config import Config
+Config.set('graphics', 'width', '1920')
+Config.set('graphics', 'height', '1080')
+from kivy.core.window import Window
 
 
-class MyGridLayout(GridLayout):
-    #initialize infinite keywords
-    def __init__(self, **kwargs):
-        # call grid layout constructor
-        super(MyGridLayout, self).__init__(**kwargs)
-        #set columns
-        self.cols = 1
-        #creating a second GridLayout
-        self.top_grid = GridLayout()
-        self.top_grid.cols = 2
-        # add widgets here
-        self.top_grid.add_widget(Label(text="Name: "))
-        self.name = TextInput(multiline=False)
-        self.top_grid.add_widget(self.name)
-        #
-        self.top_grid.add_widget(Label(text="Number: "))
-        self.number = TextInput(multiline=False)
-        self.top_grid.add_widget(self.number)
-        #
-        self.top_grid.add_widget(Label(text="Email: "))
-        self.email = TextInput(multiline=False)
-        self.top_grid.add_widget(self.email)
-        # add the new topgrid to application
-        self.add_widget(self.top_grid)
 
 
-        #Button
-        self.submit = Button(text="SUBMIT", font_size=32)
-        self.submit.bind(on_press=self.press)
-        self.add_widget(self.submit)
+
+Builder.load_file('my.kv')
+
+class MyLayout(Widget):
+    pass
+    #name = ObjectProperty(None)
+    #email = ObjectProperty(None)
+    #phone = ObjectProperty(None)
     #press fn
-    def press(self, instance):
-        name = self.name.text
-        number = self.number.text
-        email = self.email.text
-        self.add_widget(Label(text=f'Hello {name}, is {number} your number and {email} your email?'))
-        #clear input feilds
-        self.name.text = ''
-        self.number.text = ''
-        self.email.text = ''
+    #def press(self):
+    #    name = self.name.text
+    #    phone = self.phone.text
+    #    email = self.email.text
+        #self.add_widget(Label(text=f'Hello {name}, is {phone} your number and {email} your email?'))
+    #    print(f'Hello {name}, is {phone} your number and {email} your email?')
+    #    #clear input feilds
+    #    self.name.text = ''
+    #    self.phone.text = ''
+    #    self.email.text = ''
+
+#MAIN CLASS
+#my.kv file used for MyApp
 class MyApp(App):
     def build(self):
-        return MyGridLayout()
+        Window.clearcolor = (71/255.0,75/255.0,79/255.0,1)
+        return MyLayout()
 
 if __name__ == '__main__':
     MyApp().run()
