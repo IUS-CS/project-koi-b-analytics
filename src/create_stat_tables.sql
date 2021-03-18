@@ -703,3 +703,35 @@ create table if not exists t00_01_pergame
     personal_fouls decimal(3,1),
     points decimal(3,1)
 );
+create table if not exists t99_00_pergame
+(
+    player_name varchar(55) not null,
+    pos varchar(5),
+    age int,
+    team char(3),
+    games_played int,
+    games_started int,
+    minutes_played decimal(3,1),
+    fg decimal(3,1),
+    fg_attempted decimal(3,1),
+    fg_perc decimal(4,3),
+    threep decimal(4,3),
+    threep_attempted decimal(3,1),
+    threep_perc decimal(4,3),
+    twop decimal(3,1),
+    twop_attempted decimal(3,1),
+    twop_perc decimal(4,3),
+    effective_fg_perc decimal(4,3),
+    freethrows decimal(3,1),
+    freethrow_attempted decimal(3,1),
+    freethrow_perc decimal(4,3),
+    offensive_reb decimal(3,1),
+    deffensive_reb decimal(3,1),
+    total_reb decimal(3,1),
+    assists decimal(3,1),
+    steals decimal(3,1),
+    blocks decimal(3,1),
+    turnovers decimal(3,1),
+    personal_fouls decimal(3,1),
+    points decimal(3,1)
+);
