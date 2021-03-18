@@ -1,0 +1,48 @@
+#this file is indentation sensitive!!!
+#:import utils kivy.utils
+<Button>
+#global button settings
+    font_size: 24
+    background_normal: ''#ensures colors are not muted
+    background_color: utils.get_color_from_hex('#474b4f')
+    color: utils.get_color_from_hex('#86c232')
+    bold: True
+    outline_color: utils.get_color_from_hex('#474b4f')
+    outline_width: 1
+#global label settings
+
+
+
+<MyLayout>
+    BoxLayout:
+
+        orientation: "horizontal"
+        size: root.width, root.height
+        padding: 0
+        spacing: 5
+        #####################################
+        GridLayout:
+            cols: 1
+            padding: 25
+            spacing: 50
+            size_hint:(.15, 1)
+            #THESE BUTTONS WILL NAVIGATE YOU TO CORRESPONDING WINDOWS ON THE RIGHT
+            Button:
+                text: "Build A Roster"
+
+            Button:
+                text: "View Rosters"
+
+            Button:
+                text: "Run Report"
+
+            Button:
+                text: "My Feed"
+        #####################################
+        GridLayout:
+            cols: 1
+            #THIS IS WHERE THE ACTIVE WINDOW WILL BE DISPLAYED
+            #Image:
+            #    source: 'images/koi_pic.png'
+            #    allow_stretch: True
+            #    keep_ratio: False
