@@ -4,45 +4,112 @@
 #global button settings
     font_size: 24
     background_normal: ''#ensures colors are not muted
-    background_color: utils.get_color_from_hex('#474b4f')
-    color: utils.get_color_from_hex('#86c232')
+    background_color: utils.get_color_from_hex('#282C34')
+    color: utils.get_color_from_hex('#BCCFF5')
     bold: True
-    outline_color: utils.get_color_from_hex('#474b4f')
+    outline_color: utils.get_color_from_hex('#282C34')
     outline_width: 1
 #global label settings
-
-
+<TextInput>
+#global input settings
+    font_size: 20
+<Label>
+#global label settings
+    font_size: 24
 
 <MyLayout>
     BoxLayout:
-
-        orientation: "horizontal"
+        orientation: "vertical"
         size: root.width, root.height
-        padding: 0
-        spacing: 5
-        #####################################
-        GridLayout:
-            cols: 1
-            padding: 25
-            spacing: 50
-            size_hint:(.15, 1)
+        #padding: 25
+        #spacing: 50
+        size_hint:(.15, 1)
             #THESE BUTTONS WILL NAVIGATE YOU TO CORRESPONDING WINDOWS ON THE RIGHT
-            Button:
-                text: "Build A Roster"
-
-            Button:
-                text: "View Rosters"
-
-            Button:
-                text: "Run Report"
-
-            Button:
-                text: "My Feed"
-        #####################################
+        ###########ROW 1################
         GridLayout:
-            cols: 1
-            #THIS IS WHERE THE ACTIVE WINDOW WILL BE DISPLAYED
-            #Image:
-            #    source: 'images/koi_pic.png'
-            #    allow_stretch: True
-            #    keep_ratio: False
+            cols: 4
+            row_force_default: True
+            row_default_height: 50
+            Button:
+                id: buildR # used as parameter in press function
+                text: "Build A Roster"
+                width: 270
+            Button:
+                id: viewR # used as parameter in press function
+                text: "View Rosters"
+                width: 270
+            Button:
+                id: runRep # used as parameter in press function
+                text: "Run Report"
+                width: 270
+            Button:
+                id: viewFeed # used as parameter in press function
+                text: "My Feed"
+                width: 270
+
+
+
+        ##########ROW 2 season carousel############
+        BoxLayout:
+
+            orientation: "vertical"
+            Carousel:
+                direction: "right"
+                Button:
+                    id: seas_1819
+                    text: "2018-2019"
+                    height: 75
+                Button:
+                    id: seas_1920
+                    text: "2019-2020"
+                    height: 75
+                Button:
+                    id: seas_2021
+                    text: "2020-2021"
+                    height: 75
+        ##########################################
+        GridLayout:
+            cols: 3
+            row_force_default: True
+            row_default_height: 50
+            Label:
+                text: "Enter player name: "
+                width: 270
+            TextInput:
+                id: aa # used as parameter in press function
+                text: ""
+                width: 540
+            Button:
+                id: bb # used as parameter in press function
+                text: "search"
+                width: 270
+        GridLayout:
+            cols: 3
+            row_force_default: True
+            row_default_height: 50
+            Label:
+                text: "Enter player name: "
+                width: 270
+            TextInput:
+                id: aa # used as parameter in press function
+                text: ""
+                width: 540
+            Button:
+                id: bb # used as parameter in press function
+                text: "search"
+                width: 270
+        GridLayout:
+            cols: 3
+            row_force_default: True
+            row_default_height: 50
+            Label:
+                text: "Enter player name: "
+                width: 270
+            TextInput:
+                id: aa # used as parameter in press function
+                text: ""
+                width: 540
+            Button:
+                id: bb # used as parameter in press function
+                text: "search"
+                width: 270
