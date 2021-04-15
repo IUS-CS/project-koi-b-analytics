@@ -735,3 +735,10 @@ create table if not exists t99_00_pergame
     personal_fouls decimal(3,1),
     points decimal(3,1)
 );
+create table if not exists schedule
+  (
+    home char(3),
+    away char(3),
+    gameday date
+
+  )
