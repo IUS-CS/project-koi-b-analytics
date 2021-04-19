@@ -64,6 +64,7 @@ kv = Builder.load_file('my.kv')
 class MyApp(App):
     def build(self):
         Window.clearcolor = (40/255.0,44/255.0,52/255.0,1)
+        Window.maximize()
         return kv #kv references our my.kv file as see above
 
 if __name__ == '__main__':
