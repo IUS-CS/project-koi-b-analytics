@@ -1,7 +1,8 @@
-BeautifulSoup4~=4.9.3
-requests~=2.25.1
-pandas~=1.2.3
-psycopg2~=2.8.6
-sqlalchemy~=1.3.20
-python~=3.9.2
-kivy~=1.9.0
+BeautifulSoup4
+requests
+pandas
+psycopg2
+sqlalchemy
+kivy
+[//]: # \kivy_venv\Lib\site-packages\kivy\uix Comment out lines 215-217
+[//]: # python 3.9.2
