@@ -1,5 +1,8 @@
 #this file is indentation sensitive!!!
 #:import utils kivy.utils
+#:import Factory kivy.factory.Factory
+
+
 <Button>
 #global button settings
     font_size: 24
@@ -10,106 +13,198 @@
     outline_color: utils.get_color_from_hex('#282C34')
     outline_width: 1
 #global label settings
-<TextInput>
-#global input settings
-    font_size: 20
-<Label>
-#global label settings
-    font_size: 24
 
-<MyLayout>
+
+
+WindowManager:
+    FirstWindow:
+    SecondWindow:
+
+
+# ,-----.--.  ,-,--.  ,--.--------.           ,-,--.    _,.----.                  ,----.     ,----.  .-._
+#/` ` - /==/,-.'-  _\/==/,  -   , -\        ,-.'-  _\ .' .' -   \  .-.,.---.   ,-.--` , \ ,-.--` , \/==/ \  .-._
+#`-'-. -|==/==/_ ,_.'\==\.-.  - ,-./       /==/_ ,_.'/==/  ,  ,-' /==/  `   \ |==|-  _.-`|==|-  _.-`|==|, \/ /, /
+#    | `|==\==\  \    `--`\==\- \          \==\  \   |==|-   |  .|==|-, .=., ||==|   `.-.|==|   `.-.|==|-  \|  |
+#    | -|==|\==\ -\        \==\_ \          \==\ -\  |==|_   `-' \==|   '='  /==/_ ,    /==/_ ,    /|==| ,  | -|
+#    | `|==|_\==\ ,\       |==|- |          _\==\ ,\ |==|   _  , |==|- ,   .'|==|    .-'|==|    .-' |==| -   _ |
+#  .-','|==/==/\/ _ |      |==|, |         /==/\/ _ |\==\.       /==|_  . ,'.|==|_  ,`-.|==|_  ,`-._|==|  /\ , |
+# /     \==\==\ - , /      /==/ -/         \==\ - , / `-.`.___.-'/==/  /\ ,  )==/ ,     /==/ ,     //==/, | |- |
+# `-----`---`--`---'       `--`--`          `--`---'             `--`-`--`--'`--`-----```--`-----`` `--`./  `--`
+
+<FirstWindow>:#this window will show the users feed. This includes todays games and ppg leaders
+    name: "first"
+
     BoxLayout:
         orientation: "vertical"
         size: root.width, root.height
-        #padding: 25
-        #spacing: 50
-        size_hint:(.15, 1)
-            #THESE BUTTONS WILL NAVIGATE YOU TO CORRESPONDING WINDOWS ON THE RIGHT
-        ###########ROW 1################
+
+        Label:
+            text: "KOI-B FEED"
+            font_size: 32
+
+        Button:#this button will take the user to the next screen
+            text: "TO ROSTER"
+            font_size: 32
+            on_release:
+                app.root.current = "second"
+                root.manager.transition.direction = "left"#sets scroll direction for screen transition
+
+# ,-----,--,   .-._                              ,-,--.    _,.----.                  ,----.     ,----.  .-._
+# | '-  -\==\ /==/ \  .-._  _,..---._          ,-.'-  _\ .' .' -   \  .-.,.---.   ,-.--` , \ ,-.--` , \/==/ \  .-._
+# \,--, '/==/ |==|, \/ /, /==/,   -  \        /==/_ ,_.'/==/  ,  ,-' /==/  `   \ |==|-  _.-`|==|-  _.-`|==|, \/ /, /
+#    /  /==/  |==|-  \|  ||==|   _   _\       \==\  \   |==|-   |  .|==|-, .=., ||==|   `.-.|==|   `.-.|==|-  \|  |
+#   / -/==/   |==| ,  | -||==|  .=.   |        \==\ -\  |==|_   `-' \==|   '='  /==/_ ,    /==/_ ,    /|==| ,  | -|
+#  / -/==/    |==| -   _ ||==|,|   | -|        _\==\ ,\ |==|   _  , |==|- ,   .'|==|    .-'|==|    .-' |==| -   _ |
+# / `\==\_,--,|==|  /\ , ||==|  '='   /       /==/\/ _ |\==\.       /==|_  . ,'.|==|_  ,`-.|==|_  ,`-._|==|  /\ , |
+#/` -   ,/==/ /==/, | |- ||==|-,   _`/        \==\ - , / `-.`.___.-'/==/  /\ ,  )==/ ,     /==/ ,     //==/, | |- |
+#`------`--`  `--`./  `--``-.`.____.'          `--`---'             `--`-`--`--'`--`-----```--`-----`` `--`./  `--`
+
+#THIS POPUP DISPLAYS HELPFUL INFORMATION TO THE USER ON HOW TO ADD PLAYERS TO A ROSTER AND THEN ANALYZE THEM
+<MyPopup@Popup>:
+    auto_dismiss: True
+    size_hint: 0.6, 0.4
+    pos_hint: {"x":0.2, "top":1}
+    title: "Adding Players to your roster:"
+#FIX THIS___NOT PASSING WIDGET FOR POPUP
+#kivy.uix.popup.PopupException: Popup can have only one widget as content
+#    GridLayout:
+#        cols: 1
+
+
+<SecondWindow>:
+    name: "second"
+    #STACKED BOXES BY DEFAULT FOR SCREEN TWO
+    BoxLayout:
+        orientation: "vertical"
+        size: root.width, root.height
+
+#------->THIS GRID LAYOUR REPRESENTS THE FIRST ROW IN THE WINDOW
         GridLayout:
-            cols: 4
+            cols: 2
             row_force_default: True
-            row_default_height: 50
-            Button:
-                id: buildR # used as parameter in press function
-                text: "Build A Roster"
-                width: 270
-            Button:
-                id: viewR # used as parameter in press function
-                text: "View Rosters"
-                width: 270
-            Button:
-                id: runRep # used as parameter in press function
-                text: "Run Report"
-                width: 270
-            Button:
-                id: viewFeed # used as parameter in press function
-                text: "My Feed"
-                width: 270
+            row_default_height: 40
+            size_hint_y: None
+            #height: 50
+            Label:#INSIDE GRID
+                size_hint_x: 0.9
+                text: "MY ROSTER"
+                font_size: 32
 
-
-
-        ##########ROW 2 season carousel############
-        BoxLayout:
-
-            orientation: "vertical"
-            Carousel:
-                direction: "right"
-                Button:
-                    id: seas_1819
-                    text: "2018-2019"
-                    height: 75
-                Button:
-                    id: seas_1920
-                    text: "2019-2020"
-                    height: 75
-                Button:
-                    id: seas_2021
-                    text: "2020-2021"
-                    height: 75
-        ##########################################
-        GridLayout:
-            cols: 3
-            row_force_default: True
-            row_default_height: 50
-            Label:
-                text: "Enter player name: "
-                width: 270
-            TextInput:
-                id: aa # used as parameter in press function
-                text: ""
-                width: 540
-            Button:
-                id: bb # used as parameter in press function
-                text: "search"
-                width: 270
+            Button:#INSIDE GRID
+                size_hint_x: 0.1
+                text: 'HELP'
+                background_color: utils.get_color_from_hex('#6B6E70')
+                on_release: Factory.MyPopup().open()
+##ANOTHER GRID FOR ROW 2
         GridLayout:
             cols: 3
             row_force_default: True
-            row_default_height: 50
-            Label:
-                text: "Enter player name: "
-                width: 270
-            TextInput:
-                id: aa # used as parameter in press function
-                text: ""
-                width: 540
+            row_default_height: 40
+            size_hint_y: None
+            #height: 40
+            TextInput:#INSIDE GRID
+                id: user_input
+                multiline: False
+                size_hint_x: 0.7
+                text: "Enter players name here"
+                font_size: 24
+
             Button:
-                id: bb # used as parameter in press function
-                text: "search"
-                width: 270
+                size_hint_x: 0.15
+                id: clear_btn
+                background_color: utils.get_color_from_hex('#6B6E70')
+                text: "CLEAR"
+                #logic
+                on_press: root.clear_input()
+
+            Button:
+                size_hint_x: 0.15
+                id: search_btn
+                background_color: utils.get_color_from_hex('#6B6E70')
+                text: "SEARCH"
+
+##############################################
+#ON SEARCH DISPLAY KEY STATS HERE FOR PLAYERS
+#name | team | PPG | FG% | 3P % | ADD TO ROSTER BTN
         GridLayout:
-            cols: 3
+            cols: 6
             row_force_default: True
-            row_default_height: 50
+            row_default_height: 80
+            size_hint_y: None
+
             Label:
-                text: "Enter player name: "
-                width: 270
-            TextInput:
-                id: aa # used as parameter in press function
-                text: ""
-                width: 540
+                id: stat_name
+                size_hint_x: 0.17
+                text: "some sql here"
+            Label:
+                id: stat_team
+                size_hint_x: 0.17
+                text: "some sql here"
+            Label:
+                id: stat_ppg
+                size_hint_x: 0.17
+                text: "some sql here"
+            Label:
+                id: stat_fg
+                size_hint_x: 0.17
+                text: "some sql here"
+            Label:
+                id: stat_3p
+                size_hint_x: 0.17
+                text: "some sql here"
+
             Button:
-                id: bb # used as parameter in press function
-                text: "search"
-                width: 270
+                id: add_to_roster
+                size_hint_x: 0.14
+                background_color: utils.get_color_from_hex('#6B6E70')
+                text: "ADD TO ROSTER"
+                on_press: root.add_to_roster()
+#############################################
+        GridLayout:
+            cols: 7
+            row_force_default: True
+            row_default_height: 80
+            size_hint_y: None
+
+            Label:
+                id: player1
+                size_hint_x: 0.14
+                text: "PLAYER 1"
+            Label:
+                id: player2
+                size_hint_x: 0.14
+                text: "PLAYER 2"
+            Label:
+                id: player3
+                size_hint_x: 0.14
+                text: "PLAYER 3"
+            Label:
+                id: player4
+                size_hint_x: 0.14
+                text: "PLAYER 4"
+            Label:
+                id: player5
+                size_hint_x: 0.14
+                text: "PLAYER 5"
+
+            Button:
+                id: clear_roster
+                size_hint_x: 0.14
+                background_color: utils.get_color_from_hex('#6B6E70')
+                text: "CLEAR"
+                #logic
+                on_press: root.clear_roster()
+
+            Button:
+                id: analyze_btn
+                size_hint_x: 0.14
+                background_color: utils.get_color_from_hex('#61892F')
+                text: "ANALYZE"
+
+#THIS BUTTON TAKES USER TO PREVIOUS SCREEN
+        Button:#INSIDE BOX
+            text: "BACK TO FEED"
+            font_size: 32
+            on_release:
+                app.root.current = "first"
+                root.manager.transition.direction = "right"#sets scroll direction for screen transition
