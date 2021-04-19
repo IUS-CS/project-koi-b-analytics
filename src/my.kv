@@ -62,13 +62,11 @@ WindowManager:
 #THIS POPUP DISPLAYS HELPFUL INFORMATION TO THE USER ON HOW TO ADD PLAYERS TO A ROSTER AND THEN ANALYZE THEM
 <MyPopup@Popup>:
     auto_dismiss: True
-    size_hint: 0.6, 0.4
+    size_hint: 0.7, 0.4
     pos_hint: {"x":0.2, "top":1}
     title: "Adding Players to your roster:"
-#FIX THIS___NOT PASSING WIDGET FOR POPUP
-#kivy.uix.popup.PopupException: Popup can have only one widget as content
-#    GridLayout:
-#        cols: 1
+    Label:
+        text: "Start by typing in the name of your desired NBA player.\nUpon clicking the SEARCH button you will see a basic stat-sheet\nof the searched player appear. If you have found what you are looking for\nbased on this search criteria then click the ADD TO ROSTER button. After \ndoing this you will see your player spots being added. Once you have a \nfull roster (though you can run without a full roster) click the ANALYZE \nbutton to see a comprehensive view of your rosters stats. Feel free to \nplay around with these stats (use histograms, scatter plots, and more to \ncomb through your roster data)!"
 
 
 <SecondWindow>:
