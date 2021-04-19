@@ -19,7 +19,7 @@ import pandas as pd
 from pandasgui import show
 #CONNECTING TO HOSTED POSTGRES DATABASE___ WE MADE THIS WAY HARDER THAN IT NEEDED TO BE AND IT ATE UP WAY TOO MUCH TIME. BUT HEY IT WORKS NOW
 engine = create_engine("postgresql://doadmin:a8kz5iiddjdx1fdm@db-postgresql-nyc3-35484-do-user-8902057-0.b.db.ondigitalocean.com:25060/defaultdb?sslmode=require")
-connection = engine.connect()
+#connection = engine.connect()
 #PSYCOP2 connection
 conn = psycopg2.connect(host="db-postgresql-nyc3-35484-do-user-8902057-0.b.db.ondigitalocean.com", database="defaultdb", user="doadmin", password="a8kz5iiddjdx1fdm", port="25060")
 
@@ -48,11 +48,14 @@ class SecondWindow(Screen):
         myroster.clear() #this removes players from roster
     def add_to_roster(self):#THIS FN UPDATES myroster AND RENAMES LABEL TEXT IN GUI TO REFLECT THIS CHANGE
         chosen_player = str(self.ids.user_input.text)
-        query = pd.read_sql_query("SELECT * FROM t20_21_pergame", conn)
+        print(chosen_player)
+        query = pd.read_sql_query("select * from t20_21_pergame WHERE lower(\"Player\") LIKE lower('%"+chosen_player+"%');", conn)
+        print(query)
+        conn.close()
         #query = pd.read_sql_query('SELECT * FROM "t20_21_pergame" WHERE "Player" LIKE '%LeBron%'', conn)
         #query = pd.read_sql_query("select "Player", "Tm", "PTS", "FG%", "3P%" from t20_21_pergame WHERE lower("Player") LIKE lower('%lebron%');", conn)
         #test = self.ids.user_input.text
-        show(query)
+        #show(query)
         #print(query)
 class WindowManager(ScreenManager):
     pass

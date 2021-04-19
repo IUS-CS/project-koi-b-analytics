@@ -61,15 +61,20 @@ WindowManager:
 
 #THIS POPUP DISPLAYS HELPFUL INFORMATION TO THE USER ON HOW TO ADD PLAYERS TO A ROSTER AND THEN ANALYZE THEM
 <MyPopup@Popup>:
-    auto_dismiss: True
-    size_hint: 0.6, 0.4
-    pos_hint: {"x":0.2, "top":1}
+    #auto_dismiss: True
+    #size_hint: 0.6, 0.4
+    #pos_hint: {"x":0.2, "top":1}
     title: "Adding Players to your roster:"
+    size_hint: (None, None)
+    size: (400,400)
+    Label:
+        text: "donkydick"
 #FIX THIS___NOT PASSING WIDGET FOR POPUP
 #kivy.uix.popup.PopupException: Popup can have only one widget as content
-#    GridLayout:
-#        cols: 1
-
+    #GridLayout:
+    #    cols: 1
+    #    Label:
+    #        text: "donkeydick"
 
 <SecondWindow>:
     name: "second"
