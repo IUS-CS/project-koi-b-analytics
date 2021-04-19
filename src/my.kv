@@ -122,6 +122,8 @@ WindowManager:
                 id: search_btn
                 background_color: utils.get_color_from_hex('#6B6E70')
                 text: "SEARCH"
+                #logic
+                on_press: root.srch_btn()
 
 ##############################################
 #ON SEARCH DISPLAY KEY STATS HERE FOR PLAYERS
@@ -141,15 +143,15 @@ WindowManager:
                 size_hint_x: 0.17
                 text: "some sql here"
             Label:
-                id: stat_ppg
+                id: stat_pos
+                size_hint_x: 0.17
+                text: "some sql here"
+            Label:
+                id: stat_pts
                 size_hint_x: 0.17
                 text: "some sql here"
             Label:
                 id: stat_fg
-                size_hint_x: 0.17
-                text: "some sql here"
-            Label:
-                id: stat_3p
                 size_hint_x: 0.17
                 text: "some sql here"
 
@@ -200,7 +202,8 @@ WindowManager:
                 size_hint_x: 0.14
                 background_color: utils.get_color_from_hex('#61892F')
                 text: "ANALYZE"
-
+                #logic
+                on_press: root.anal_roster()
 #THIS BUTTON TAKES USER TO PREVIOUS SCREEN
         Button:#INSIDE BOX
             text: "BACK TO FEED"
