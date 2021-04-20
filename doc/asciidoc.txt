@@ -1,0 +1,20 @@
+Testing Method
+==================
+For this program, we found that it was more complicated to create an automatic
+testing system than it would be to simply manually test each aspect of this code.
+This is due to the majority of our program opperating on a GUI and passing 
+along information based on listeners, rather than typical styles of 
+OOP. 
+With the use of our database, we found that passing each type of information
+yeilded better testing results than if we were to do another type of testing.
+To confirm functionality of this program, we pressed each button presented 
+several times to ensure that we were getting the expected results with each 
+button press. In the text field, we use a wildcard system, and tested the 
+accuracy of finding the data based on simple and short text inputs. 
+Then, once these particular players were found based on the wildcard information,
+we input a series of random characters that would in no way yeild an accurate 
+data entry. This functioned as expected, and proved that the program would only 
+continue whenever a valid name, or some fraction thereof, was entered into the text 
+field.
+For further testing, we entered more players than allowed, and found that the list
+of players was as long as epected. 
