@@ -5,18 +5,18 @@
 
 <Button>
 #global button settings
-    font_size: 24
+    font_size: 26
     background_normal: ''#ensures colors are not muted
     background_color: utils.get_color_from_hex('#282C34')
-    color: utils.get_color_from_hex('#BCCFF5')
+    color: utils.get_color_from_hex('#222629')
     bold: True
-    outline_color: utils.get_color_from_hex('#282C34')
     outline_width: 1
 
 <Label>
 #global label settings
     font_size: 16
     background_color: utils.get_color_from_hex('#222629')
+    color: 1,1,1,1
 
 WindowManager:
     FirstWindow:
@@ -43,8 +43,11 @@ WindowManager:
         spacing: 10
 
         Label:
-            text: "KOI-B FEED"
-            font_size: 32
+            text: "WELCOME TO KOI-B ANALYTICS"
+            font_size: 42
+        Label:
+            text: "- A COMPREHENSIVE TOOL USED TO GAIN A COMPETETIVE EDGE IN NBA FANTASY MATCH-UPS."
+            font_size: 26
 
         Button:#this button will take the user to the next screen
             text: "TO ROSTER"
@@ -77,12 +80,23 @@ WindowManager:
     background_normal: ''
     canvas.before:
         Color:
-            rgba: (48/255.0,84/255.0,52/255.0,1)
+            rgba: (97/255.0,137/255.0,47/255.0,1)
         RoundedRectangle:
             size: self.size
             pos: self.pos
             radius: [15]
 
+<RoundedButton2@Button>
+    background_color: (0,0,0,0)
+    background_normal: ''
+
+    canvas.before:
+        Color:
+            rgba: (168/255.0,168/255.0,168/255.0,1)
+        RoundedRectangle:
+            size: self.size
+            pos: self.pos
+            radius: [15]
 <SecondWindow>:
     name: "second"
     #STACKED BOXES BY DEFAULT FOR SCREEN TWO
@@ -98,18 +112,16 @@ WindowManager:
             row_force_default: True
             row_default_height: 40
             size_hint_y: None
-
-            #height: 50
             Label:#INSIDE GRID
                 size_hint_x: 0.9
                 text: "MY ROSTER"
                 font_size: 32
 
-            Button:#INSIDE GRID
+            RoundedButton2:#INSIDE GRID
                 size_hint_x: 0.1
                 text: 'HELP'
-                background_color: utils.get_color_from_hex('#6B6E70')
                 on_release: Factory.MyPopup().open()
+                on_release: root.animate_it(self)
 ##ANOTHER GRID FOR ROW 2
         GridLayout:
             cols: 3
@@ -124,21 +136,20 @@ WindowManager:
                 text: "Enter players name here"
                 font_size: 24
 
-            Button:
+            RoundedButton2:
                 size_hint_x: 0.15
                 id: clear_btn
-                background_color: utils.get_color_from_hex('#6B6E70')
                 text: "CLEAR"
                 #logic
                 on_press: root.clear_input()
-
-            Button:
+                on_release: root.animate_it(self)
+            RoundedButton2:
                 size_hint_x: 0.15
                 id: search_btn
-                background_color: utils.get_color_from_hex('#6B6E70')
                 text: "SEARCH"
                 #logic
                 on_press: root.srch_btn()
+                on_release: root.animate_it(self)
 
 ##############################################
 #ON SEARCH DISPLAY KEY STATS HERE FOR PLAYERS
@@ -152,35 +163,37 @@ WindowManager:
             Label:
                 id: stat_name
                 size_hint_x: 0.17
-                text: "NAME: "
+                text: "NAME:\n "
                 background_color: utils.get_color_from_hex('#222629')
+                outline_color: utils.get_color_from_hex('#6B6E70')
             Label:
                 id: stat_team
                 size_hint_x: 0.17
-                text: "TEAM: "
+                text: "TEAM:\n "
                 background_color: utils.get_color_from_hex('#222629')
             Label:
                 id: stat_pos
                 size_hint_x: 0.17
-                text: "POSITION: "
+                text: "POSITION:\n "
                 background_color: utils.get_color_from_hex('#222629')
             Label:
                 id: stat_pts
                 size_hint_x: 0.17
-                text: "PPG: "
+                text: "PPG:\n "
                 background_color: utils.get_color_from_hex('#222629')
             Label:
                 id: stat_fg
                 size_hint_x: 0.17
-                text: "FG %: "
+                text: "FG %:\n "
                 background_color: utils.get_color_from_hex('#222629')
 
-            Button:
+            RoundedButton2:
                 id: add_to_roster
                 size_hint_x: 0.14
-                background_color: utils.get_color_from_hex('#6B6E70')
                 text: "ADD TO ROSTER"
+                #logic
                 on_press: root.add_to_roster()
+                on_release: root.animate_it(self)
 #############################################
         GridLayout:
             cols: 7
@@ -210,21 +223,21 @@ WindowManager:
                 size_hint_x: 0.14
                 text: "PLAYER 5"
 
-            Button:
+            RoundedButton2:
                 id: clear_roster
                 size_hint_x: 0.14
-                background_color: utils.get_color_from_hex('#6B6E70')
                 text: "CLEAR"
                 #logic
                 on_press: root.clear_roster()
+                on_release: root.animate_it(self)
 
             RoundedButton:
                 id: analyze_btn
                 size_hint_x: 0.14
-                #background_color: utils.get_color_from_hex('#61892F')
                 text: "ANALYZE"
                 #logic
                 on_press: root.anal_roster()
+                on_release: root.animate_it(self)
 #THIS BUTTON TAKES USER TO PREVIOUS SCREEN
         Button:#INSIDE BOX
             text: "BACK TO FEED"
