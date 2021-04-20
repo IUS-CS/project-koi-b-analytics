@@ -4,11 +4,14 @@
 Koi B Analytics - NBA Stat Track
 ================================
 
-NBA Stat Track is an analytics program made using Python v3.9.1
+NBA Stat Track is an analytics program made using Python with connections to a database through Digital Ocean. Database management reviewed through DataGrip. All GUI created usign Kivy
 
 # Guide
 
 [User-Guide](https://github.com/IUS-CS/project-koi-b-analytics/blob/main/doc/USERGUIDE.md)
+
+# Requirements
+[Requirements](https://github.com/IUS-CS/project-koi-b-analytics/blob/main/doc/requirements.md)
 
 # Contribute
 
