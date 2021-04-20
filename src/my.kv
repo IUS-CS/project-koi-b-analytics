@@ -12,9 +12,11 @@
     bold: True
     outline_color: utils.get_color_from_hex('#282C34')
     outline_width: 1
+
+<Label>
 #global label settings
-
-
+    font_size: 16
+    background_color: utils.get_color_from_hex('#222629')
 
 WindowManager:
     FirstWindow:
@@ -37,6 +39,8 @@ WindowManager:
     BoxLayout:
         orientation: "vertical"
         size: root.width, root.height
+        padding: 10
+        spacing: 10
 
         Label:
             text: "KOI-B FEED"
@@ -68,6 +72,16 @@ WindowManager:
     Label:
         text: "Start by typing in the name of your desired NBA player.\nUpon clicking the SEARCH button you will see a basic stat-sheet\nof the searched player appear. If you have found what you are looking for\nbased on this search criteria then click the ADD TO ROSTER button. After \ndoing this you will see your player spots being added. Once you have a \nfull roster (though you can run without a full roster) click the ANALYZE \nbutton to see a comprehensive view of your rosters stats. Feel free to \nplay around with these stats (use histograms, scatter plots, and more to \ncomb through your roster data)!"
 
+<RoundedButton@Button>
+    background_color: (0,0,0,0)
+    background_normal: ''
+    canvas.before:
+        Color:
+            rgba: (48/255.0,84/255.0,52/255.0,1)
+        RoundedRectangle:
+            size: self.size
+            pos: self.pos
+            radius: [15]
 
 <SecondWindow>:
     name: "second"
@@ -75,6 +89,8 @@ WindowManager:
     BoxLayout:
         orientation: "vertical"
         size: root.width, root.height
+        padding: 10
+        spacing: 10
 
 #------->THIS GRID LAYOUR REPRESENTS THE FIRST ROW IN THE WINDOW
         GridLayout:
@@ -82,6 +98,7 @@ WindowManager:
             row_force_default: True
             row_default_height: 40
             size_hint_y: None
+
             #height: 50
             Label:#INSIDE GRID
                 size_hint_x: 0.9
@@ -99,7 +116,7 @@ WindowManager:
             row_force_default: True
             row_default_height: 40
             size_hint_y: None
-            #height: 40
+            spacing: 10
             TextInput:#INSIDE GRID
                 id: user_input
                 multiline: False
@@ -131,27 +148,32 @@ WindowManager:
             row_force_default: True
             row_default_height: 80
             size_hint_y: None
-
+            spacing: 10
             Label:
                 id: stat_name
                 size_hint_x: 0.17
-                text: "some sql here"
+                text: "NAME: "
+                background_color: utils.get_color_from_hex('#222629')
             Label:
                 id: stat_team
                 size_hint_x: 0.17
-                text: "some sql here"
+                text: "TEAM: "
+                background_color: utils.get_color_from_hex('#222629')
             Label:
                 id: stat_pos
                 size_hint_x: 0.17
-                text: "some sql here"
+                text: "POSITION: "
+                background_color: utils.get_color_from_hex('#222629')
             Label:
                 id: stat_pts
                 size_hint_x: 0.17
-                text: "some sql here"
+                text: "PPG: "
+                background_color: utils.get_color_from_hex('#222629')
             Label:
                 id: stat_fg
                 size_hint_x: 0.17
-                text: "some sql here"
+                text: "FG %: "
+                background_color: utils.get_color_from_hex('#222629')
 
             Button:
                 id: add_to_roster
@@ -165,6 +187,7 @@ WindowManager:
             row_force_default: True
             row_default_height: 80
             size_hint_y: None
+            spacing: 10
 
             Label:
                 id: player1
@@ -195,10 +218,10 @@ WindowManager:
                 #logic
                 on_press: root.clear_roster()
 
-            Button:
+            RoundedButton:
                 id: analyze_btn
                 size_hint_x: 0.14
-                background_color: utils.get_color_from_hex('#61892F')
+                #background_color: utils.get_color_from_hex('#61892F')
                 text: "ANALYZE"
                 #logic
                 on_press: root.anal_roster()

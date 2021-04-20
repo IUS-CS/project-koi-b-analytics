@@ -89,6 +89,8 @@ class SecondWindow(Screen):
             if roster_length == 4:
                 self.ids.player4.text  = player_name
     def anal_roster(self):
+        if len(myroster) < 5:
+            return
         p1 = myroster[0]
         p2 = myroster[1]
         p3 = myroster[2]
