@@ -14,8 +14,10 @@ python -m pip install --upgrade pip setuptools virtualenv
 
 python -m virtualenv kivy_venv
 
-windows: python -m virtualenv kivy_venv
+windows: source kivy_venv/Scripts/activate
+
 macos/linux: source kivy_venv/bin/activate
+
 
 navigate to  \kivy_venv\Lib\site-packages\kivy\uix\popup.py -comment out lines 215-217 -
 
