@@ -18,15 +18,14 @@ windows: kivy_venv\Scripts\activate
 
 macos/linux: source kivy_venv/bin/activate
 
-
-navigate to  \kivy_venv\Lib\site-packages\kivy\uix\popup.py -comment out lines 215-217 -
-
 cd project-koi-b-analytics/doc
 
 pip install -r requirements.md
 
+navigate to  \kivy_venv\Lib\site-packages\kivy\uix\popup.py -comment out lines 215-217 -
+
 cd..
 
-cd /src
+cd src
 
 python koib_build.py
