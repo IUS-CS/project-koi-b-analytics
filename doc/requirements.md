@@ -1,4 +1,4 @@
-kivy[base] kivy_examples
+kivy
 psycopg2
 sqlalchemy
 pandas
