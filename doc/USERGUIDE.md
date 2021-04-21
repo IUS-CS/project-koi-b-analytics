@@ -14,7 +14,7 @@ python -m pip install --upgrade pip setuptools virtualenv
 
 python -m virtualenv kivy_venv
 
-windows: source kivy_venv/Scripts/activate
+windows: kivy_venv\Scripts\activate
 
 macos/linux: source kivy_venv/bin/activate
 
